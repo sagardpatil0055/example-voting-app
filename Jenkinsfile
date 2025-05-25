@@ -41,7 +41,7 @@ pipeline{
                	stage("Windows Test"){
 				 when {		
 					 branch 'develop'
-                	  		 env name: 'DEPLOY_TO', value: 'dev' 
+                	  		 environment name: 'ENV', value: 'dev' 
 					 }
                    	
                    		 steps{
