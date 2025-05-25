@@ -7,9 +7,9 @@ pipeline{
         timeout(time: 10, unit: 'MINUTES')
     }
     parameters {
-        string(name: 'branch', defaultValue: 'develop', description: '')
+        string(name: 'BRANCH', defaultValue: 'develop', description: '')
         booleanParam(name: 'TEST_CASES', defaultValue: true, description: '')
-        choice(name: 'env', choices: ['dev', 'qa', 'uat'], description: '')
+        choice(name: 'ENV', choices: ['dev', 'qa', 'uat'], description: '')
     }
     stages{
         stage("Docker build and push"){
