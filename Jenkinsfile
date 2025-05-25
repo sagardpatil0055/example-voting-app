@@ -31,7 +31,7 @@ pipeline{
             parallel{    
                	stage("Linux Test"){	
                     when { branch 'develop'
-                	    environment name: 'DEPLOY_TO', value: 'qa' 
+                	    environment name: 'DEPLOY_TO', value: 'dev' 
 			 }
 		  	 agent{label 'worker'}    
                    	 steps{
@@ -41,7 +41,7 @@ pipeline{
                		 }  
                		 stage("Windows Test"){
 				 when {		 branch 'develop'
-                	  		 	 environment name: 'DEPLOY_TO', value: 'qa' 
+                	  		 	 environment name: 'DEPLOY_TO', value: 'dev' 
 					 }
                    		 agent{label 'worker'}
                    		 steps{
