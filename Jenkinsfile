@@ -40,15 +40,12 @@ pipeline{
                     	 		   sh "echo linux"
                       			   sh "sleep 180"
                    		 }
-			     
-                   
                		 }  
-                stage("Windows Test"){
-		
-                    agent{label 'worker'}
-                    steps{
-                        sh "echo windows"
-                        sh "sleep 180"
+               		 stage("Windows Test"){
+                   		 agent{label 'worker'}
+                   		 steps{
+                       			 sh "echo windows"
+                       			 sh "sleep 180"
                     }
                 }                       
         }
