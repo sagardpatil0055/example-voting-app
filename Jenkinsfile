@@ -3,12 +3,12 @@ pipeline{
     stages{
         stage("Docker build and push"){
             steps{
-                sh "docker login -u dipesh017 -p Arvi.1418"
+                sh "docker login -u sagardpatil0055 -p 009D@12345"
                 sh '''
                     cd vote
-                    docker build -t dipesh017/vote:v${BUILD_NUMBER} .
+                    docker build -t sagardpatil0055/vote:v${BUILD_NUMBER} .
                     '''
-                sh "docker push dipesh017/vote:v${BUILD_NUMBER}"
+                sh "docker push sagardpatil0055/vote:v${BUILD_NUMBER}"
             }
         }
         stage("Deploy"){
