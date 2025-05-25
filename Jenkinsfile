@@ -29,14 +29,15 @@ pipeline{
         }
         stage ("parallel testing"){
             parallel{    
-               	stage("Linux Test"){
-			agent{label 'worker'}
+               	stage("Linux Test"){	
                     when { branch 'develop'
                 	    environment name: 'DEPLOY_TO', value: 'qa' 
 			 }
-		  	     
-                   	 steps{sh "echo linux"
-                      		sh "sleep 180" }
+		  	 agent{label 'worker'}    
+                   	 steps{
+				 sh "echo linux"
+                      		sh "sleep 180" 
+			 }
                		 }  
                		 stage("Windows Test"){
 				 when {		 branch 'develop'
