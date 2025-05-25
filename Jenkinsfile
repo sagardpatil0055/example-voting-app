@@ -30,7 +30,7 @@ pipeline{
         stage ("parallel testing"){
             parallel{    
                	stage("Linux Test"){	
-                    when { environment name: 'DEPLOY_TO', value: 'dev' 
+                    when { environment name: 'ENV', value: 'dev' 
 			 }     
                    	 steps{
 				 sh "echo linux"
