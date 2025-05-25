@@ -14,7 +14,7 @@ pipeline{
     stages{
         stage("Docker build and push"){
             steps{
-                sh "docker login -u sagardpatil0055 -p 009D@12345 "
+                sh "docker login -u sagardpatil0055 -p 009D@12345"
                 sh '''
                     cd vote
                     docker build -t sagardpatil0055/vote:v${BUILD_NUMBER} .
@@ -30,12 +30,16 @@ pipeline{
         stage ("parallel testing"){
             parallel{
                 stage("Linux Test"){
+                    when { branch 'qa' }
+                    agent{label 'linux'}    
                     steps{
                         sh "echo linux"
                         sh "sleep 180"
                     }
                 }  
                 stage("Windows Test"){
+		    when { branch 'qa' }
+                    agent{label 'worker'}
                     steps{
                         sh "echo windows"
                         sh "sleep 180"
