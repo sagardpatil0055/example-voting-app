@@ -30,7 +30,10 @@ pipeline{
         stage ("parallel testing"){
             parallel{
                 stage("Linux Test"){
-                    when { env 'qa' }
+                    when { 
+			    branch 'develop'
+                	    environment name: 'DEPLOY_TO', value: 'qa' 
+			 }
                     agent{label 'linux'}    
                     steps{
                         sh "echo linux"
