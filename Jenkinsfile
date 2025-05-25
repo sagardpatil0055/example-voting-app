@@ -41,7 +41,10 @@ pipeline{
                     }
                 }  
                 stage("Windows Test"){
-		    when { env 'qa' }
+		   when { 
+			    branch 'develop'
+                	    environment name: 'DEPLOY_TO', value: 'qa' 
+			 }
                     agent{label 'worker'}
                     steps{
                         sh "echo windows"
