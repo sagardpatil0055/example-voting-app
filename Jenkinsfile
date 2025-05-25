@@ -7,7 +7,7 @@ pipeline{
         timeout(time: 10, unit: 'MINUTES')
     }
     parameters {
-        string(name: 'BRANCH', defaultValue: 'develop', description: '')
+        string(name: 'branch', defaultValue: 'develop', description: '')
         booleanParam(name: 'TEST_CASES', defaultValue: true, description: '')
         choice(name: 'ENV', choices: ['dev', 'qa', 'uat'], description: '')
     }
@@ -30,7 +30,7 @@ pipeline{
         stage ("parallel testing"){
             parallel{    
                	stage("Linux Test"){	
-                    when {  branch name: 'BRANCH' , value: 'develop'
+                    when {  branch 'develop'
 			    environment name: 'ENV', value: 'dev' 
 			 }     
                    	 steps{
