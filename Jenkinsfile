@@ -30,15 +30,14 @@ pipeline{
         stage ("parallel testing"){
             parallel{    
                	stage("Linux Test"){	
-                    when {  environment name: 'ENV', value: 'qa'
-			     
-			 }     
+                    when {  environment name: 'ENV', value: 'qa'}     
                    	 steps{
 				 sh "echo linux"
                       		sh "sleep 180" 
 			 }
                		 }  
                	stage("Windows Test"){
+			when {  environment name: 'ENV', value: 'qa'}  
                    		 steps{
                        			 sh "echo windows"
                        			 sh "sleep 180"
