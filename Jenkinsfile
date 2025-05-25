@@ -39,7 +39,7 @@ pipeline{
                         sh "echo linux"
                         sh "sleep 180"
                     }
-			     }
+			     
                    
                 }  
                 stage("Windows Test"){
