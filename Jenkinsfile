@@ -30,7 +30,7 @@ pipeline{
         stage ("parallel testing"){
             parallel{    
                	stage("Linux Test"){	
-                    when { branch 'develop'
+                    when { branch 'main'
                 	    environment name: 'DEPLOY_TO', value: 'dev' 
 			 }
 		  	 agent{label 'worker'}    
