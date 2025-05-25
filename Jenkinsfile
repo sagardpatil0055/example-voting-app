@@ -33,7 +33,7 @@ pipeline{
                     when { 
 			    branch 'develop'
                 	    environment name: 'DEPLOY_TO', value: 'qa' 
-		    }
+		    		}
 		    agent{label 'linux'}    
                     steps{
                         sh "echo linux"
