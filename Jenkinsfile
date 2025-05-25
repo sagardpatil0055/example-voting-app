@@ -30,7 +30,7 @@ pipeline{
         stage ("parallel testing"){
             parallel{    
                	stage("Linux Test"){	
-                    when { branch 'main'
+                    when { branch 'develop'
                 	    environment name: 'DEPLOY_TO', value: 'dev' 
 			 }     
                    	 steps{
