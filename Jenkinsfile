@@ -33,11 +33,14 @@ pipeline{
                     when { branch 'develop'
                 	    environment name: 'DEPLOY_TO', value: 'qa' 
 			 }
-		  	agent{label 'linux'}    
+		  	 agent{label 'worker'}    
                    	 steps{sh "echo linux"
                       		sh "sleep 180" }
                		 }  
                		 stage("Windows Test"){
+				 when {		 branch 'develop'
+                	  		 	 environment name: 'DEPLOY_TO', value: 'qa' 
+					 }
                    		 agent{label 'worker'}
                    		 steps{
                        			 sh "echo windows"
