@@ -39,11 +39,6 @@ pipeline{
 			 }
                		 }  
                	stage("Windows Test"){
-				 when {		
-					 branch 'develop'
-                	  		 environment name: 'ENV', value: 'dev' 
-					 }
-                   	
                    		 steps{
                        			 sh "echo windows"
                        			 sh "sleep 180"
