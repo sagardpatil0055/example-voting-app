@@ -30,7 +30,7 @@ pipeline{
         stage ("parallel testing"){
             parallel{
                 stage("Linux Test"){
-                    when { BRANCH 'qa' }
+                    when { branch 'qa' }
                     agent{label 'linux'}    
                     steps{
                         sh "echo linux"
@@ -38,7 +38,7 @@ pipeline{
                     }
                 }  
                 stage("Windows Test"){
-		    when { BRANCH 'qa' }
+		    when { branch 'qa' }
                     agent{label 'worker'}
                     steps{
                         sh "echo windows"
