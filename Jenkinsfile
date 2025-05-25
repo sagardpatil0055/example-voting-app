@@ -31,7 +31,7 @@ pipeline{
             parallel{    
                	stage("Linux Test"){	
                     when {  branch 'develop'
-			    environment name: 'ENV', value: 'dev' 
+			     
 			 }     
                    	 steps{
 				 sh "echo linux"
