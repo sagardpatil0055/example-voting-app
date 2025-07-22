@@ -28,8 +28,8 @@ RUN npm ci \
 
 COPY . .
 
-ENV PORT 80
+ENV PORT 5001
 
-EXPOSE 80
+EXPOSE 5001
 
 CMD ["/tini", "--", "node", "server.js"]
