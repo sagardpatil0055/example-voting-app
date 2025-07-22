@@ -71,19 +71,13 @@ pipeline {
           for (ip in ipList) {
             echo "🚀 Deploying to ${ip}"
             sh """
-              scp -o StrictHostKeyChecking=no -i ${SSH_KEY_PATH} docker-compose.yml ubuntu@${ip}:/home/ubuntu/docker-compose.yml
-
-              ssh -o StrictHostKeyChecking=no -i ${SSH_KEY_PATH} ubuntu@${ip} << EOF
-                echo "📦 Pulling latest images"
-                docker pull ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_VOTE_REPO}:latest
-                docker pull ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_RESULT_REPO}:latest
-
-                echo "🧼 Stopping old containers"
-                docker compose -f docker-compose.yml down || true
-
-                echo "🚀 Starting services"
-                docker compose -f docker-compose.yml up -d
-              EOF
+              scp -o StrictHostKeyChecking=no -i ${SSH_KEY_PATH} docker-compose.yml ubuntu@${ip}:/home/ubuntu/
+            
+              ssh -o StrictHostKeyChecking=no -i ${SSH_KEY_PATH} ubuntu@${ip} \\
+                "docker pull ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_VOTE_REPO}:latest && \\
+                 docker pull ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_RESULT_REPO}:latest && \\
+                 docker compose -f docker-compose.yml down || true && \\
+                 docker compose -f docker-compose.yml up -d"
             """
           }
         }
