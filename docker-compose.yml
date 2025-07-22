@@ -4,14 +4,14 @@ services:
     image: 980104576357.dkr.ecr.us-east-1.amazonaws.com/vote:latest
     container_name: vote
     ports:
-      - "5000:5000"
+      - "8083:8083"
     restart: unless-stopped
 
   result:
     image: 980104576357.dkr.ecr.us-east-1.amazonaws.com/result:latest
     container_name: result
     ports:
-      - "5001:5001"
+      - "8082:8082"
     restart: unless-stopped
 
   redis:
