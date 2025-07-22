@@ -5,7 +5,7 @@ pipeline {
     REPO_URL       = 'https://github.com/sagardpatil0055/example-voting-app.git'
     AWS_REGION     = 'us-east-1'
     AWS_ACCOUNT_ID = '980104576357'
-    ECR_VOTE_REPO  = 'vote'
+    ECR_VOTE_REPO  = 'test-nodeapp-repo'
     ECR_RESULT_REPO = 'result'
     SSH_KEY_PATH   = "${HOME}/project.pem"
     APP_TAG_NAME   = 'app'
