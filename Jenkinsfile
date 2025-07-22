@@ -2,7 +2,7 @@ pipeline {
   agent { label 'app' }
 
   environment {
-    REPO_URL       = 'https://github.com/sagardpatil0055/vote-app.git'
+    REPO_URL       = 'https://github.com/sagardpatil0055/example-voting-app.git'
     AWS_REGION     = 'us-east-1'
     AWS_ACCOUNT_ID = '980104576357'
     ECR_VOTE_REPO  = 'vote'
