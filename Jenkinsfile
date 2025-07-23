@@ -8,7 +8,7 @@ pipeline {
     ECR_VOTE_REPO  = 'vote'
     ECR_RESULT_REPO = 'result'
     SSH_KEY_PATH   = "${HOME}/project.pem"
-    APP_TAG_NAME   = 'app'
+    APP_TAG_NAME   = 'jenkins'
   }
 
   parameters {
