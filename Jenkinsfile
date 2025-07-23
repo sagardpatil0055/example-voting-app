@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'app' }
+  agent { label 'jenkins' }
 
   environment {
     REPO_URL       = 'https://github.com/sagardpatil0055/example-voting-app.git'
