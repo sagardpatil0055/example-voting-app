@@ -79,7 +79,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(express.static(__dirname + '/views'));
+app.use('/result', express.static(__dirname + '/views'));
 
 app.get('/result', function (req, res) {
   res.sendFile(path.resolve(__dirname + '/views/index.html'));
