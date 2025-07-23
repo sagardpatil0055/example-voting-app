@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'jenkins' }
+  agent { label 'bastion' }
 
   environment {
     REPO_URL       = 'https://github.com/sagardpatil0055/example-voting-app.git'
@@ -8,7 +8,7 @@ pipeline {
     ECR_VOTE_REPO  = 'vote'
     ECR_RESULT_REPO = 'result'
     SSH_KEY_PATH   = "${HOME}/project.pem"
-    APP_TAG_NAME   = 'jenkins'
+    APP_TAG_NAME   = 'bastion'
   }
 
   parameters {
